@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Bedrock Cookbook - Searchable Recipes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #232F3E 0%, #FF9900 100%);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .search-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.1rem;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            transition: border-color 0.3s;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: #FF9900;
+        }
+        
+        .filters {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: 2px solid #ddd;
+            background: white;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .filter-btn:hover {
+            border-color: #FF9900;
+            background: #FFF3E0;
+        }
+        
+        .filter-btn.active {
+            background: #FF9900;
+            color: white;
+            border-color: #FF9900;
+        }
+        
+        .stats {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #666;
+        }
+        
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .recipe-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        
+        .recipe-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+        
+        .recipe-title {
+            font-size: 1.3rem;
+            color: #232F3E;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .recipe-description {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        
+        .recipe-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        
+        .tag {
+            padding: 0.25rem 0.75rem;
+            background: #E3F2FD;
+            color: #1976D2;
+            border-radius: 12px;
+            font-size: 0.85rem;
+        }
+        
+        .tag.difficulty-beginner { background: #E8F5E9; color: #2E7D32; }
+        .tag.difficulty-intermediate { background: #FFF3E0; color: #F57C00; }
+        .tag.difficulty-advanced { background: #FFEBEE; color: #C62828; }
+        
+        .recipe-link {
+            color: #FF9900;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .recipe-link:hover {
+            text-decoration: underline;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+        }
+        
+        .no-results h2 {
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .recipe-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .filters {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🍳 Amazon Bedrock Cookbook</h1>
+        <p>Search through 120+ recipes, guides, and examples</p>
+    </div>
+    
+    <div class="container">
+        <div class="search-box">
+            <input 
+                type="text" 
+                class="search-input" 
+                id="searchInput" 
+                placeholder="Search recipes... (e.g., 'RAG', 'agents', 'Claude', 'fine-tuning')"
+                autocomplete="off"
+            >
+            <div class="filters" id="filters"></div>
+        </div>
+        
+        <div class="stats" id="stats"></div>
+        
+        <div class="recipe-grid" id="recipeGrid"></div>
+        
+        <div class="no-results" id="noResults" style="display: none;">
+            <h2>No recipes found</h2>
+            <p>Try adjusting your search terms or filters</p>
+        </div>
+    </div>
+
+    <script>
+        // Recipe database
+        const recipes = [
+            // Quickstarts
+            { title: "Bedrock Invoke API", description: "Make your first API call to Amazon Bedrock", category: "Quickstarts", tags: ["beginner", "api", "getting-started"], difficulty: "beginner", link: "./introduction-to-bedrock/bedrock_apis/" },
+            { title: "Converse API", description: "Build multi-turn conversations with context", category: "Quickstarts", tags: ["beginner", "api", "chat", "conversation"], difficulty: "beginner", link: "./introduction-to-bedrock/converse_api/" },
+            { title: "Streaming Responses", description: "Real-time response streaming for better UX", category: "Quickstarts", tags: ["beginner", "streaming", "api"], difficulty: "beginner", link: "./introduction-to-bedrock/converse_api/" },
+            { title: "Embeddings with Titan", description: "Generate text embeddings for semantic search", category: "Quickstarts", tags: ["beginner", "embeddings", "titan", "search"], difficulty: "beginner", link: "./embeddings/" },
+            { title: "Prompt Caching", description: "Reduce costs and latency with prompt caching", category: "Quickstarts", tags: ["intermediate", "optimization", "cost", "caching"], difficulty: "intermediate", link: "./introduction-to-bedrock/prompt-caching/" },
+            { title: "Structured Outputs", description: "JSON mode for structured data generation", category: "Quickstarts", tags: ["beginner", "json", "structured-data"], difficulty: "beginner", link: "./introduction-to-bedrock/structured-outputs/" },
+            { title: "Batch Processing", description: "Large-scale batch inference for cost efficiency", category: "Quickstarts", tags: ["intermediate", "batch", "scale", "cost"], difficulty: "intermediate", link: "./introduction-to-bedrock/batch_api/" },
+            
+            // Agents & Function Calling
+            { title: "Introduction to Agents", description: "Build your first AI agent from scratch", category: "Agents", tags: ["beginner", "agents", "getting-started"], difficulty: "beginner", link: "./agents-and-function-calling/introduction-to-agents/" },
+            { title: "Function Calling Basics", description: "Native function calling with Converse API", category: "Agents", tags: ["intermediate", "function-calling", "tools"], difficulty: "intermediate", link: "./agents-and-function-calling/function-calling/" },
+            { title: "Agent with Function Definition", description: "Define custom functions for your agent", category: "Agents", tags: ["intermediate", "agents", "function-calling"], difficulty: "intermediate", link: "./agents-and-function-calling/bedrock-agents/features-examples/01-create-agent-with-function-definition/" },
+            { title: "Agent with API Schema", description: "Use OpenAPI specs to define agent capabilities", category: "Agents", tags: ["intermediate", "agents", "openapi", "api"], difficulty: "intermediate", link: "./agents-and-function-calling/bedrock-agents/features-examples/02-create-agent-with-api-schema/" },
+            { title: "Return of Control", description: "Human-in-the-loop patterns for agent workflows", category: "Agents", tags: ["advanced", "agents", "human-in-loop", "workflow"], difficulty: "advanced", link: "./agents-and-function-calling/bedrock-agents/features-examples/03-create-agent-with-return-of-control/" },
+            { title: "Agent with Knowledge Base", description: "RAG-enabled agents with Knowledge Bases", category: "Agents", tags: ["intermediate", "agents", "rag", "knowledge-base"], difficulty: "intermediate", link: "./agents-and-function-calling/bedrock-agents/features-examples/04-create-agent-with-single-knowledge-base/" },
+            { title: "Agent with Guardrails", description: "Add safety controls to your agents", category: "Agents", tags: ["intermediate", "agents", "guardrails", "safety"], difficulty: "intermediate", link: "./agents-and-function-calling/bedrock-agents/features-examples/08-create-agent-with-guardrails/" },
+            { title: "Agent with Memory", description: "Persistent memory for conversational agents", category: "Agents", tags: ["intermediate", "agents", "memory", "conversation"], difficulty: "intermediate", link: "./agents-and-function-calling/bedrock-agents/features-examples/09-create-agent-with-memory/" },
+            { title: "Code Interpreter Agent", description: "Execute code dynamically within agents", category: "Agents", tags: ["advanced", "agents", "code-execution", "python"], difficulty: "advanced", link: "./agents-and-function-calling/bedrock-agents/features-examples/10-create-agent-with-code-interpreter/" },
+            { title: "Multi-Agent with CrewAI", description: "Collaborative agents using CrewAI framework", category: "Agents", tags: ["advanced", "agents", "multi-agent", "crewai"], difficulty: "advanced", link: "./agents-and-function-calling/open-source-agents/" },
+            { title: "Multi-Agent with LangGraph", description: "Orchestrate multiple agents with LangGraph", category: "Agents", tags: ["advanced", "agents", "multi-agent", "langgraph"], difficulty: "advanced", link: "./agents-and-function-calling/open-source-agents/" },
+            
+            // RAG
+            { title: "Zero-Setup Knowledge Base Chat", description: "Quick start with Bedrock Knowledge Bases", category: "RAG", tags: ["beginner", "rag", "knowledge-base", "chat"], difficulty: "beginner", link: "./rag/knowledge-bases/" },
+            { title: "RAG with LangChain", description: "Build RAG applications with LangChain", category: "RAG", tags: ["intermediate", "rag", "langchain", "vector-db"], difficulty: "intermediate", link: "./rag/open-source/" },
+            { title: "RAG with LlamaIndex", description: "Data-focused RAG with LlamaIndex", category: "RAG", tags: ["intermediate", "rag", "llamaindex", "data"], difficulty: "intermediate", link: "./rag/open-source/" },
+            { title: "Multi-Modal RAG", description: "RAG with images and text combined", category: "RAG", tags: ["advanced", "rag", "multimodal", "vision"], difficulty: "advanced", link: "./rag/knowledge-bases/features-examples/" },
+            { title: "Graph RAG", description: "Knowledge graph integration for RAG", category: "RAG", tags: ["advanced", "rag", "graph", "knowledge-graph"], difficulty: "advanced", link: "./rag/knowledge-bases/features-examples/" },
+            { title: "Reranking Strategies", description: "Improve retrieval with reranking", category: "RAG", tags: ["intermediate", "rag", "reranking", "optimization"], difficulty: "intermediate", link: "./rag/open-source/" },
+            { title: "Chunking Strategies", description: "Document chunking techniques for better RAG", category: "RAG", tags: ["intermediate", "rag", "chunking", "preprocessing"], difficulty: "intermediate", link: "./rag/open-source/" },
+            
+            // Multimodal
+            { title: "Vision with Claude 3", description: "Image understanding with Claude 3", category: "Multimodal", tags: ["intermediate", "vision", "claude", "images"], difficulty: "intermediate", link: "./multi-modal/Claude3/" },
+            { title: "Image Generation with Titan", description: "Generate images using Titan Image Generator", category: "Multimodal", tags: ["intermediate", "image-generation", "titan"], difficulty: "intermediate", link: "./multi-modal/Titan%20Image%20Generator/" },
+            { title: "Background Removal", description: "Remove backgrounds from images", category: "Multimodal", tags: ["intermediate", "image-editing", "titan"], difficulty: "intermediate", link: "./multi-modal/Titan%20Image%20Generator/" },
+            { title: "Video Embeddings", description: "Video search with TwelveLabs embeddings", category: "Multimodal", tags: ["advanced", "video", "embeddings", "search"], difficulty: "advanced", link: "./multi-modal/TwelveLabs/" },
+            { title: "Nova Multimodal", description: "Work with Amazon Nova multimodal models", category: "Multimodal", tags: ["intermediate", "nova", "multimodal"], difficulty: "intermediate", link: "./multi-modal/Nova/" },
+            
+            // Custom Models
+            { title: "Fine-Tune Claude", description: "Fine-tune Claude Haiku for your domain", category: "Custom Models", tags: ["advanced", "fine-tuning", "claude"], difficulty: "advanced", link: "./custom-models/bedrock-fine-tuning/" },
+            { title: "Fine-Tune Llama", description: "Fine-tune Meta Llama models", category: "Custom Models", tags: ["advanced", "fine-tuning", "llama"], difficulty: "advanced", link: "./custom-models/bedrock-fine-tuning/" },
+            { title: "Model Distillation", description: "Knowledge distillation from teacher to student", category: "Custom Models", tags: ["advanced", "distillation", "optimization"], difficulty: "advanced", link: "./custom-models/model_distillation/" },
+            { title: "RLHF Fine-Tuning", description: "Reinforcement learning with human feedback", category: "Custom Models", tags: ["advanced", "rlhf", "fine-tuning"], difficulty: "advanced", link: "./custom-models/bedrock-reinforcement-fine-tuning/" },
+            { title: "Import Llama Models", description: "Import open-source Llama models", category: "Custom Models", tags: ["advanced", "model-import", "llama"], difficulty: "advanced", link: "./custom-models/import_models/" },
+            { title: "Import Mistral Models", description: "Import Mistral AI models", category: "Custom Models", tags: ["advanced", "model-import", "mistral"], difficulty: "advanced", link: "./custom-models/import_models/" },
+            
+            // Use Cases
+            { title: "Retail Agent", description: "Product recommendations and inventory management", category: "Use Cases", tags: ["intermediate", "agents", "retail", "e-commerce"], difficulty: "intermediate", link: "./agents-and-function-calling/bedrock-agents/use-case-examples/agentsforbedrock-retailagent/" },
+            { title: "HR Assistant", description: "Employee onboarding and policy Q&A", category: "Use Cases", tags: ["intermediate", "agents", "hr", "chatbot"], difficulty: "intermediate", link: "./agents-and-function-calling/bedrock-agents/use-case-examples/hr-assistant/" },
+            { title: "CRM Agent", description: "Customer relationship management automation", category: "Use Cases", tags: ["intermediate", "agents", "crm", "sales"], difficulty: "intermediate", link: "./agents-and-function-calling/bedrock-agents/use-case-examples/customer-relationship-management-agent/" },
+            { title: "Insurance Claim Automation", description: "Automate insurance claim processing", category: "Use Cases", tags: ["advanced", "agents", "insurance", "automation"], difficulty: "advanced", link: "./agents-and-function-calling/bedrock-agents/use-case-examples/insurance-claim-lifecycle-automation/" },
+            { title: "Text-to-SQL Agent", description: "Natural language database queries", category: "Use Cases", tags: ["intermediate", "agents", "sql", "database"], difficulty: "intermediate", link: "./agents-and-function-calling/bedrock-agents/use-case-examples/text-2-sql-agent/" },
+            { title: "Marketing Agent", description: "Campaign creation and content generation", category: "Use Cases", tags: ["intermediate", "agents", "marketing", "content"], difficulty: "intermediate", link: "./agents-and-function-calling/bedrock-agents/use-case-examples/marketing-agent/" },
+            { title: "Investment Research Assistant", description: "Financial analysis and report generation", category: "Use Cases", tags: ["advanced", "agents", "finance", "research"], difficulty: "advanced", link: "./agents-and-function-calling/bedrock-agents/use-case-examples/ai-powered-assistant-for-investment-research/" },
+            { title: "Cost Explorer Agent", description: "AWS cost analysis and optimization", category: "Use Cases", tags: ["intermediate", "agents", "aws", "cost"], difficulty: "intermediate", link: "./agents-and-function-calling/bedrock-agents/use-case-examples/cost-explorer-agent/" },
+            { title: "Product Review Agent", description: "Sentiment analysis and review summarization", category: "Use Cases", tags: ["intermediate", "agents", "nlp", "sentiment"], difficulty: "intermediate", link: "./agents-and-function-calling/bedrock-agents/use-case-examples/product-review-agent/" },
+            
+            // Evaluation & Observability
+            { title: "RAG Evaluation", description: "Evaluate RAG systems with synthetic data", category: "Evaluation", tags: ["intermediate", "evaluation", "rag", "testing"], difficulty: "intermediate", link: "./evaluation-observe/bedrock-rag-evaluation/" },
+            { title: "LLM-as-Judge", description: "Use LLMs to evaluate model outputs", category: "Evaluation", tags: ["intermediate", "evaluation", "llm-judge"], difficulty: "intermediate", link: "./evaluation-observe/bedrock-llm-as-judge-evaluation/" },
+            { title: "Custom Metrics", description: "Build domain-specific evaluation metrics", category: "Evaluation", tags: ["advanced", "evaluation", "metrics"], difficulty: "advanced", link: "./evaluation-observe/bedrock-eval-custom-metrics/" },
+            { title: "Agent Testing Framework", description: "Systematically test agent behavior", category: "Evaluation", tags: ["intermediate", "testing", "agents"], difficulty: "intermediate", link: "./agents-and-function-calling/bedrock-agents/test-agent/" },
+            { title: "Langfuse Observability", description: "Deploy Langfuse on ECS Fargate", category: "Observability", tags: ["advanced", "observability", "langfuse", "monitoring"], difficulty: "advanced", link: "./evaluation-observe/deploy-langfuse-on-ecs-fargate-with-typescript-cdk/" },
+            { title: "OpenTelemetry Integration", description: "Distributed tracing with OpenTelemetry", category: "Observability", tags: ["advanced", "observability", "tracing", "opentelemetry"], difficulty: "advanced", link: "./evaluation-observe/open-telemetry-instrumentation/" },
+            
+            // Responsible AI
+            { title: "Guardrails API", description: "Content filtering and PII redaction", category: "Responsible AI", tags: ["intermediate", "guardrails", "safety", "pii"], difficulty: "intermediate", link: "./responsible_ai/bedrock-guardrails/" },
+            { title: "Automated Reasoning", description: "Policy validation with automated reasoning", category: "Responsible AI", tags: ["advanced", "reasoning", "compliance", "policy"], difficulty: "advanced", link: "./responsible_ai/bedrock-automated-reasoning-checks/" },
+            { title: "Test-Driven Guardrails", description: "TDD approach for building guardrails", category: "Responsible AI", tags: ["advanced", "guardrails", "testing", "tdd"], difficulty: "advanced", link: "./responsible_ai/tdd-guardrail/" },
+            { title: "Securing RAG Apps", description: "Security best practices for RAG", category: "Responsible AI", tags: ["intermediate", "security", "rag"], difficulty: "intermediate", link: "./security/securing-rag-apps/" },
+            
+            // Production
+            { title: "Batch Orchestrator", description: "Orchestrate batch jobs with Step Functions", category: "Production", tags: ["advanced", "batch", "step-functions", "orchestration"], difficulty: "advanced", link: "./poc-to-prod/bedrock-batch-orchestrator/" },
+            { title: "Inference Profiles", description: "Configure and manage inference profiles", category: "Production", tags: ["intermediate", "inference", "configuration"], difficulty: "intermediate", link: "./poc-to-prod/inference-profiles/" },
+            { title: "Cost Tracking", description: "Monitor costs with Converse API metadata", category: "Production", tags: ["intermediate", "cost", "monitoring"], difficulty: "intermediate", link: "./cost-reporting/converse-metadata-cost-reporting/" },
+            { title: "Cross-Region Inference", description: "High availability with multi-region", category: "Production", tags: ["advanced", "availability", "multi-region"], difficulty: "advanced", link: "./introduction-to-bedrock/cross-region/" },
+            
+            // Advanced
+            { title: "Prompt Engineering Guide", description: "Best practices for prompt engineering", category: "Advanced", tags: ["intermediate", "prompts", "optimization"], difficulty: "intermediate", link: "./articles-guides/prompt-engineering/" },
+            { title: "Model Latency Benchmarking", description: "Measure TTFT and tokens per second", category: "Advanced", tags: ["advanced", "performance", "benchmarking"], difficulty: "advanced", link: "./model-latency-benchmarking/" },
+            { title: "Model Migration", description: "Evaluate and migrate between models", category: "Advanced", tags: ["advanced", "migration", "evaluation"], difficulty: "advanced", link: "./migrations/360-eval/" },
+        ];
+
+        // Extract unique categories and tags
+        const categories = [...new Set(recipes.map(r => r.category))];
+        const allTags = [...new Set(recipes.flatMap(r => r.tags))];
+        
+        let activeFilters = {
+            category: null,
+            difficulty: null,
+            searchTerm: ''
+        };
+        
+        // Initialize
+        function init() {
+            renderFilters();
+            renderRecipes(recipes);
+            updateStats(recipes.length);
+            
+            // Event listeners
+            document.getElementById('searchInput').addEventListener('input', handleSearch);
+        }
+        
+        // Render filter buttons
+        function renderFilters() {
+            const filtersContainer = document.getElementById('filters');
+            
+            // Category filters
+            const categoryHTML = categories.map(cat => 
+                `<button class="filter-btn" data-type="category" data-value="${cat}">${cat}</button>`
+            ).join('');
+            
+            // Difficulty filters
+            const difficultyHTML = ['beginner', 'intermediate', 'advanced'].map(diff => 
+                `<button class="filter-btn" data-type="difficulty" data-value="${diff}">
+                    ${diff.charAt(0).toUpperCase() + diff.slice(1)}
+                </button>`
+            ).join('');
+            
+            filtersContainer.innerHTML = categoryHTML + difficultyHTML + 
+                '<button class="filter-btn" id="clearFilters">Clear Filters</button>';
+            
+            // Add click handlers
+            filtersContainer.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', handleFilterClick);
+            });
+            
+            document.getElementById('clearFilters').addEventListener('click', clearFilters);
+        }
+        
+        // Handle filter clicks
+        function handleFilterClick(e) {
+            const btn = e.target;
+            const type = btn.dataset.type;
+            const value = btn.dataset.value;
+            
+            if (!type) return;
+            
+            // Toggle active state
+            if (activeFilters[type] === value) {
+                activeFilters[type] = null;
+                btn.classList.remove('active');
+            } else {
+                // Remove active from siblings
+                document.querySelectorAll(`[data-type="${type}"]`).forEach(b => 
+                    b.classList.remove('active')
+                );
+                activeFilters[type] = value;
+                btn.classList.add('active');
+            }
+            
+            filterRecipes();
+        }
+        
+        // Clear all filters
+        function clearFilters() {
+            activeFilters = { category: null, difficulty: null, searchTerm: '' };
+            document.getElementById('searchInput').value = '';
+            document.querySelectorAll('.filter-btn').forEach(btn => 
+                btn.classList.remove('active')
+            );
+            renderRecipes(recipes);
+            updateStats(recipes.length);
+        }
+        
+        // Handle search input
+        function handleSearch(e) {
+            activeFilters.searchTerm = e.target.value.toLowerCase();
+            filterRecipes();
+        }
+        
+        // Filter recipes based on active filters
+        function filterRecipes() {
+            let filtered = recipes;
+            
+            // Apply category filter
+            if (activeFilters.category) {
+                filtered = filtered.filter(r => r.category === activeFilters.category);
+            }
+            
+            // Apply difficulty filter
+            if (activeFilters.difficulty) {
+                filtered = filtered.filter(r => r.difficulty === activeFilters.difficulty);
+            }
+            
+            // Apply search term
+            if (activeFilters.searchTerm) {
+                filtered = filtered.filter(r => {
+                    const searchIn = [
+                        r.title,
+                        r.description,
+                        r.category,
+                        ...r.tags
+                    ].join(' ').toLowerCase();
+                    
+                    return searchIn.includes(activeFilters.searchTerm);
+                });
+            }
+            
+            renderRecipes(filtered);
+            updateStats(filtered.length);
+        }
+        
+        // Render recipe cards
+        function renderRecipes(recipesToRender) {
+            const grid = document.getElementById('recipeGrid');
+            const noResults = document.getElementById('noResults');
+            
+            if (recipesToRender.length === 0) {
+                grid.style.display = 'none';
+                noResults.style.display = 'block';
+                return;
+            }
+            
+            grid.style.display = 'grid';
+            noResults.style.display = 'none';
+            
+            grid.innerHTML = recipesToRender.map(recipe => `
+                <div class="recipe-card" onclick="window.location.href='${recipe.link}'">
+                    <h3 class="recipe-title">${recipe.title}</h3>
+                    <p class="recipe-description">${recipe.description}</p>
+                    <div class="recipe-tags">
+                        <span class="tag difficulty-${recipe.difficulty}">${recipe.difficulty}</span>
+                        ${recipe.tags.slice(0, 3).map(tag => 
+                            `<span class="tag">${tag}</span>`
+                        ).join('')}
+                    </div>
+                    <a href="${recipe.link}" class="recipe-link" onclick="event.stopPropagation()">
+                        View Recipe →
+                    </a>
+                </div>
+            `).join('');
+        }
+        
+        // Update stats
+        function updateStats(count) {
+            document.getElementById('stats').textContent = 
+                `Showing ${count} of ${recipes.length} recipes`;
+        }
+        
+        // Initialize on load
+        init();
+    </script>
+</body>
+</html>

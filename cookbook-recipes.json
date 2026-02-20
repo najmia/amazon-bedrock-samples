@@ -1,0 +1,34 @@
+{
+  "recipes": [
+    {
+      "id": "bedrock-invoke-api",
+      "title": "Bedrock Invoke API",
+      "description": "Make your first API call to Amazon Bedrock",
+      "category": "Quickstarts",
+      "tags": ["beginner", "api", "getting-started"],
+      "difficulty": "beginner",
+      "link": "./introduction-to-bedrock/bedrock_apis/",
+      "keywords": ["invoke", "api", "basic", "first call", "hello world"]
+    },
+    {
+      "id": "converse-api",
+      "title": "Converse API",
+      "description": "Build multi-turn conversations with context",
+      "category": "Quickstarts",
+      "tags": ["beginner", "api", "chat", "conversation"],
+      "difficulty": "beginner",
+      "link": "./introduction-to-bedrock/converse_api/",
+      "keywords": ["chat", "conversation", "multi-turn", "context", "dialogue"]
+    },
+    {
+      "id": "streaming-responses",
+      "title": "Streaming Responses",
+      "description": "Real-time response streaming for better UX",
+      "category": "Quickstarts",
+      "tags": ["beginner", "streaming", "api"],
+      "difficulty": "beginner",
+      "link": "./introduction-to-bedrock/converse_api/",
+      "keywords": ["stream", "real-time", "sse", "server-sent events"]
+    }
+  ]
+}
