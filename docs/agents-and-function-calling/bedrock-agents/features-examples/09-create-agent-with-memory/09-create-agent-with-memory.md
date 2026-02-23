@@ -1,8 +1,6 @@
 ---
 tags:
-    - Agents/ Memory
-    - Agents/ Function Definition
-    - Agents/ Tool Binding
+    - Agents
 ---
 
 !!! tip inline end "[Open in github](https://github.com/aws-samples/amazon-bedrock-samples/tree/main/agents-and-function-calling/bedrock-agents/features-examples/09-create-agent-with-memory/09-create-agent-with-memory.ipynb){:target="_blank"}"

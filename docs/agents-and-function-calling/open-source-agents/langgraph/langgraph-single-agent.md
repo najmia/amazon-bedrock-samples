@@ -1,7 +1,7 @@
 ---
 tags:
-    - Agents/ Function Calling
-    - Open Source/ LangGraph
+    - Agents
+    - Langchain
 ---
 <!--<h2>Find a vacation destination with Agents - Single Agent</h2> -->
 

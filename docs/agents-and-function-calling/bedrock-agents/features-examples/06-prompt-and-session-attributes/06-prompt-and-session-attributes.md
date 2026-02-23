@@ -1,8 +1,7 @@
 ---
 tags:
-    - Agents/ Function Definition
-    - Agents/ Memory
-    - Bedrock/ Prompt-Management
+    - Agents
+    - Prompt-Engineering
 ---
 
 !!! tip inline end "[Open in github](https://github.com/aws-samples/amazon-bedrock-samples/tree/main/agents-and-function-calling/bedrock-agents/features-examples/06-prompt-and-session-attributes/06-prompt-and-session-attributes.ipynb){:target="_blank"}"

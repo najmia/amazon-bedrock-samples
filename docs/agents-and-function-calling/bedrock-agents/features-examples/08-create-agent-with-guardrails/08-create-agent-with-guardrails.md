@@ -1,8 +1,8 @@
 ---
 tags:
-    - Agents/ Function Calling
-    - Responsible-AI/ Guardrails
-    - RAG/ Knowledge-Bases
+    - Agents
+    - Guardrails
+    - Knowledge-Bases
 ---
 
 !!! tip inline end "[Open in github](https://github.com/aws-samples/amazon-bedrock-samples/tree/main/agents-and-function-calling/bedrock-agents/features-examples/08-create-agent-with-guardrails/08-create-agent-with-guardrails.ipynb){:target="_blank"}"

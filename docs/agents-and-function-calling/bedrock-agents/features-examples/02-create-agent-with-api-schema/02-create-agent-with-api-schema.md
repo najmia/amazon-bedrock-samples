@@ -1,8 +1,6 @@
 ---
 tags:
-    - Agents/ Function Definition
-    - API-Usage-Example
-    - Use cases
+    - Agents
 ---
 
 !!! tip inline end "[Open in github](https://github.com/aws-samples/amazon-bedrock-samples/tree/main/agents-and-function-calling/bedrock-agents/features-examples/02-create-agent-with-api-schema/02-create-agent-with-api-schema.ipynb){:target="_blank"}"

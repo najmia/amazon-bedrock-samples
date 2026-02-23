@@ -1,7 +1,8 @@
 ---
 tags:
-    - Agents/ Multi-Agent-Orchestration
-    - Open Source/ LangGraph
+    - Agents
+    - Multi-Agent-Collaboration
+    - Langchain
 ---
 <!-- <h2>Fact-checker Feedback Loop with LangGraph on Amazon Bedrock</h2> -->
 

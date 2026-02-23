@@ -1,8 +1,6 @@
 ---
 tags:
-    - Agents/ Return of Control
-    - Agents/ Function Definition
-    - Agents/ Tool Binding
+    - Agents
 ---
 
 !!! tip inline end "[Open in github](https://github.com/aws-samples/amazon-bedrock-samples/tree/main/agents-and-function-calling/bedrock-agents/features-examples/03-create-agent-with-return-of-control/03-create-agent-with-return-of-control.ipynb){:target="_blank"}"

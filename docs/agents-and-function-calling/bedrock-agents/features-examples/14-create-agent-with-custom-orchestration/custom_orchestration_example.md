@@ -1,7 +1,6 @@
 ---
 tags:
-    - Agents/ Custom-Orchestration
-    - API-Usage-Example
+    - Agents
 ---
 
 !!! tip inline end "[Open in github](https://github.com/aws-samples/amazon-bedrock-samples/blob/main/agents-and-function-calling/bedrock-agents/features-examples/14-create-agent-with-custom-orchestration/custom_orchestration_example.ipynb){:target="_blank"}"

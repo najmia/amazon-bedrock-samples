@@ -1,7 +1,6 @@
 ---
 tags:
-    - Agents/ Function Definition
-    - Agents/ Function Calling
+    - Agents
     - Prompt-Engineering
 ---
 
