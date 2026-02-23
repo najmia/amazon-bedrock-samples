@@ -1,7 +1,6 @@
 ---
 tags:
-    - Bedrock/ Prompt-Management
-    - API-Usage-Example
+    - Prompt-Engineering
 ---
 
 !!! tip inline end "[Open in github](https://github.com/aws-samples/amazon-bedrock-samples/tree/main/agents-and-function-calling/bedrock-agents/bedrock-flows/Getting_started_with_Prompt_Management_Flows.ipynb){:target="_blank"}"

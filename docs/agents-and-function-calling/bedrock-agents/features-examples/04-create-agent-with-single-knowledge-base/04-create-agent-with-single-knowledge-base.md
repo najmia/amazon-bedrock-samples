@@ -1,8 +1,8 @@
 ---
 tags:
-    - Agents/ Function Calling
-    - Agent/ RAG
-    - RAG/ Knowledge-Bases
+    - Agents
+    - RAG
+    - Knowledge-Bases
 ---
 
 !!! tip inline end "[Open in github](https://github.com/aws-samples/amazon-bedrock-samples/tree/main/agents-and-function-calling/bedrock-agents/features-examples/04-create-agent-with-single-knowledge-base/04-create-agent-with-single-knowledge-base.ipynb){:target="_blank"}"

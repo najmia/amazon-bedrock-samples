@@ -1,8 +1,7 @@
 ---
 tags:
-    - Agents/ Function Calling
-    - Agent/ RAG
-    - Agents/ Tool Binding
+    - Agents
+    - RAG
 ---
 
 !!! tip inline end "[Open in github](https://github.com/aws-samples/amazon-bedrock-samples/tree/main/agents-and-function-calling/bedrock-agents/features-examples/05-create-agent-with-knowledge-base-and-action-group/05-create-agent-with-knowledge-base-and-action-group.ipynb){:target="_blank"}"

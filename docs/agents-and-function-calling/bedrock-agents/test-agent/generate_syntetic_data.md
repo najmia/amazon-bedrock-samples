@@ -1,7 +1,7 @@
 ---
 tags:
-    - Agent/ Code-Interpreter
-    - RAG/ Data-Ingestion
+    - Agents
+    - RAG
 ---
 
 !!! tip inline end "[Open in github](https://github.com/aws-samples/amazon-bedrock-samples/tree/main/agents-and-function-calling/bedrock-agents/test-agent/generate_syntetic_data.ipynb){:target="_blank"}"

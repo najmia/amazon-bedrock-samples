@@ -1,8 +1,7 @@
 ---
 tags:
-    - Agent/ Code-Interpreter
-    - API-Usage-Example
-    - Agents/ Function Calling
+    - Agents
+    - Prompt-Engineering
 ---
 
 !!! tip inline end "[Open in github](https://github.com/aws-samples/amazon-bedrock-samples/tree/main/agents-and-function-calling/bedrock-agents/features-examples/10-create-agent-with-code-interpreter/10-create-agent-with-code-interpreter.ipynb){:target="_blank"}"

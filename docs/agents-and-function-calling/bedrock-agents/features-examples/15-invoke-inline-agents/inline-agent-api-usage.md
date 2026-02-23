@@ -1,7 +1,6 @@
 ---
 tags:
-    - Agents/ Dynamic Inline Agent
-    - API-Usage-Example
+    - Agents
 ---
 
 !!! tip inline end "[Open in github](https://github.com/aws-samples/amazon-bedrock-samples/tree/main/agents-and-function-calling/bedrock-agents/features-examples/15-invoke-inline-agents/inline-agent-api-usage.ipynb){:target="_blank"}"

@@ -1,7 +1,7 @@
 ---
 tags:
-    - Agents/ Multi-Agent-Orchestration
-    - Use cases
+    - Agents
+    - Multi-Agent-Collaboration
 ---
 
 

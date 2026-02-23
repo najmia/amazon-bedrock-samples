@@ -1,7 +1,7 @@
 ---
 tags:
-    - Agent/ Code-Interpreter
-    - Agent/ Prompt-Engineering
+    - Agents
+    - Prompt-Engineering
 ---
 
 !!! tip inline end "[Open in github](https://github.com/aws-samples/agents-and-function-calling/agent-code-interpreter/01_create_agent.ipynb){:target="_blank"}
