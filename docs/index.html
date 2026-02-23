@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Bedrock Cookbook - Your Hub for Building with Bedrock</title>
+    <meta name="description" content="Comprehensive recipes, guides, and examples for building AI applications with Amazon Bedrock">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Amazon Bedrock Cookbook</h1>
+            <p class="hero-subtitle">Your Hub for Building Production-Ready AI Applications on AWS</p>
+            <p class="hero-description">
+                Comprehensive recipes, reference architectures, and production-ready code for Amazon Bedrock. 
+                From quickstarts to advanced patterns, everything you need to build with confidence.
+            </p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">120+</span>
+                    <span class="stat-label">Recipes</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Use Cases</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">Categories</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Bar -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    id="mainSearch" 
+                    class="search-input-large" 
+                    placeholder="What do you want to build? (e.g., 'RAG chatbot', 'SQL agent', 'image generation')"
+                >
+                <button class="search-btn" onclick="performSearch()">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M9 17A8 8 0 1 0 9 1a8 8 0 0 0 0 16zM19 19l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    Search
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <h2 class="section-title">What do you want to do?</h2>
+            
+            <!-- Category Cards -->
+            <div class="category-grid">
+                <!-- Quickstarts -->
+                <div class="category-card" onclick="navigateTo('quickstarts')">
+                    <div class="card-icon">🚀</div>
+                    <h3 class="card-title">Quickstarts</h3>
+                    <p class="card-description">Get started in 15 minutes with basic API calls, streaming, and embeddings</p>
+                    <div class="card-count">8 recipes</div>
+                </div>
+
+                <!-- Agents -->
+                <div class="category-card" onclick="navigateTo('agents')">
+                    <div class="card-icon">🤖</div>
+                    <h3 class="card-title">Agents & Function Calling</h3>
+                    <p class="card-description">Build autonomous agents with tools, memory, and custom orchestration</p>
+                    <div class="card-count">30+ recipes</div>
+                </div>
+
+                <!-- RAG -->
+                <div class="category-card" onclick="navigateTo('rag')">
+                    <div class="card-icon">📚</div>
+                    <h3 class="card-title">RAG & Knowledge Bases</h3>
+                    <p class="card-description">Retrieval augmented generation with vector databases and Knowledge Bases</p>
+                    <div class="card-count">20+ recipes</div>
+                </div>
+
+                <!-- Multimodal -->
+                <div class="category-card" onclick="navigateTo('multimodal')">
+                    <div class="card-icon">🎨</div>
+                    <h3 class="card-title">Multimodal</h3>
+                    <p class="card-description">Vision, image generation, video processing, and audio understanding</p>
+                    <div class="card-count">15+ recipes</div>
+                </div>
+
+
+                <!-- Use Cases -->
+                <div class="category-card" onclick="navigateTo('use-cases')">
+                    <div class="card-icon">💼</div>
+                    <h3 class="card-title">Use Case Solutions</h3>
+                    <p class="card-description">Production-ready solutions for retail, HR, finance, healthcare, and more</p>
+                    <div class="card-count">12+ solutions</div>
+                </div>
+
+                <!-- Custom Models -->
+                <div class="category-card" onclick="navigateTo('custom-models')">
+                    <div class="card-icon">⚙️</div>
+                    <h3 class="card-title">Custom Models</h3>
+                    <p class="card-description">Fine-tuning, distillation, RLHF, and model import</p>
+                    <div class="card-count">10+ recipes</div>
+                </div>
+
+                <!-- Responsible AI -->
+                <div class="category-card" onclick="navigateTo('responsible-ai')">
+                    <div class="card-icon">🛡️</div>
+                    <h3 class="card-title">Responsible AI</h3>
+                    <p class="card-description">Guardrails, safety controls, automated reasoning, and security</p>
+                    <div class="card-count">8+ recipes</div>
+                </div>
+
+                <!-- Evaluation -->
+                <div class="category-card" onclick="navigateTo('evaluation')">
+                    <div class="card-icon">📊</div>
+                    <h3 class="card-title">Evaluation & Testing</h3>
+                    <p class="card-description">LLM-as-judge, synthetic data, custom metrics, and benchmarking</p>
+                    <div class="card-count">10+ recipes</div>
+                </div>
+
+                <!-- Production -->
+                <div class="category-card" onclick="navigateTo('production')">
+                    <div class="card-icon">🏭</div>
+                    <h3 class="card-title">Production Patterns</h3>
+                    <p class="card-description">Batch processing, cost optimization, monitoring, and deployment</p>
+                    <div class="card-count">8+ recipes</div>
+                </div>
+            </div>
+        </div>
+    </main>
