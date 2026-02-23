@@ -1,7 +1,6 @@
 ---
 tags:
-    - RAG/ Data-Ingestion
-    - Use cases
+    - RAG
 ---
 
 !!! tip inline end "[Open in github](https://github.com/aws-samples/amazon-bedrock-samples/tree/main/rag/knowledge-bases/use-case-examples/rag-using-structured-unstructured-data/0-create-dummy-structured-data.ipynb){:target="_blank"}"

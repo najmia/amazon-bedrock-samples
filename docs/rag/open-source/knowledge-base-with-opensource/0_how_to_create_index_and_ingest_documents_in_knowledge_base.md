@@ -1,6 +1,6 @@
 ---
 tags:
-    - RAG/ Data-Ingestion
+    - RAG
 ---
 
 <!-- <h2>How to create index and ingest documents in Amazon Bedrock Knowledge Base</h2> -->

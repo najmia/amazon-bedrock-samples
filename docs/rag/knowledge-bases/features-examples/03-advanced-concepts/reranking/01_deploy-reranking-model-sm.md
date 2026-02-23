@@ -1,8 +1,7 @@
 ---
 tags:
-    - RAG/ Knowledge-Bases
-    - Open Source/ Langchain
-    - Use cases
+    - RAG
+    - Langchain
 ---
 
 !!! tip inline end "[Open in github](https://github.com/aws-samples/amazon-bedrock-samples/tree/main/rag/knowledge-bases/features-examples/03-advanced-concepts/reranking/01_deploy-reranking-model-sm.ipynb){:target="_blank"}"

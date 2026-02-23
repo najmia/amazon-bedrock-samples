@@ -1,8 +1,7 @@
 ---
 tags:
-    - RAG/ Metadata-Filtering
-    - Agents/ Function Calling
-    - RAG/ Knowledge-Bases
+    - RAG
+    - Agents
 ---
 
 !!! tip inline end "[Open in github](https://github.com/aws-samples/amazon-bedrock-samples/tree/main/rag/knowledge-bases/features-examples/03-advanced-concepts/dynamic-metadata-filtering/dynamic-metadata-filtering-KB.ipynb){:target="_blank"}"

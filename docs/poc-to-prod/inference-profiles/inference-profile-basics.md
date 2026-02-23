@@ -1,7 +1,6 @@
 ---
 tags:
-    - Bedrock/ Inference-Profiles
-    - PoC-to-Prod
+    - Batch-Inference
 ---
 
 [Open in github](https://github.com/aws-samples/amazon-bedrock-samples/tree/main/poc-to-prod/inference-profiles/inference-profile-basics.ipynb)

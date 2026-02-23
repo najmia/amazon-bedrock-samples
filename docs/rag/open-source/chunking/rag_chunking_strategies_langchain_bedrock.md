@@ -1,8 +1,8 @@
 ---
 tags:
-    - RAG/ Knowledge-Bases
-    - Open Source/ Langchain
-    - Open Source/ LlamaIndex
+    - RAG
+    - Langchain
+    - LlamaIndex
 ---
 
 <!-- <style>

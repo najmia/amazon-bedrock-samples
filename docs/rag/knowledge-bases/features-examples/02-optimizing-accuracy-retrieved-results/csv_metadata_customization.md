@@ -1,8 +1,7 @@
 ---
 tags:
-    - RAG/ Metadata-Filtering
-    - RAG/ Data-Ingestion
-    - RAG/ Knowledge-Bases
+    - RAG
+    - Knowledge-Bases
 ---
 
 !!! tip inline end "[Open in github](https://github.com/aws-samples/amazon-bedrock-samples/tree/main/rag/knowledge-bases/features-examples/02-optimizing-accuracy-retrieved-results/csv_metadata_customization.ipynb){:target="_blank"}"

@@ -1,8 +1,7 @@
 ---
 tags:
-    - RAG/ Knowledge-Bases
-    - Agent/ RAG
-    - RAG/ Data-Ingestion
+    - RAG
+    - Evaluation
 ---
 
 !!! tip inline end "[Open in github](https://github.com/aws-samples/amazon-bedrock-samples/tree/main/rag/knowledge-bases/features-examples/01-rag-concepts/04_customized-rag-retreive-api-langchain-claude-evaluation-ragas.ipynb){:target="_blank"}"

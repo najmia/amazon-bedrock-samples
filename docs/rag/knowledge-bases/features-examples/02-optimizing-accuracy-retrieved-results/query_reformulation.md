@@ -1,8 +1,7 @@
 ---
 tags:
-    - RAG/ Knowledge-Bases
-    - RAG/ Metadata-Filtering
-    - Agents/ Return of Control
+    - RAG
+    - Agents
 ---
 
 !!! tip inline end "[Open in github](https://github.com/aws-samples/amazon-bedrock-samples/tree/main/rag/knowledge-bases/features-examples/02-optimizing-accuracy-retrieved-results/query_reformulation.ipynb){:target="_blank"}"

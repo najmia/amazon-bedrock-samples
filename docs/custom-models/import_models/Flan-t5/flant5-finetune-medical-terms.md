@@ -1,6 +1,6 @@
 ---
 tags:
-    - CMI-Example
+    - Custom-Model-Import
 ---
 
 <h1> Fine tuning & deploying Flan-T5-Large to Amazon Bedrock using Custom Model Import (Using PEFT & SFTTrainer) </h1>

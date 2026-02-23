@@ -1,8 +1,7 @@
 ---
 tags:
-    - RAG/ Chunking-Strategies
-    - RAG/ Knowledge-Bases
-    - RAG/ Data-Ingestion
+    - RAG
+    - Knowledge-Bases
 ---
 
 !!! tip inline end "[Open in github](https://github.com/aws-samples/amazon-bedrock-samples/tree/main/rag/knowledge-bases/features-examples/02-optimizing-accuracy-retrieved-results/advanced_chunking_options.ipynb){:target="_blank"}"

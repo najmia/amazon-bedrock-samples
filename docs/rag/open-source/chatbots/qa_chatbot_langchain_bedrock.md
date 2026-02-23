@@ -1,7 +1,7 @@
 ---
 tags:
-    - RAG/ Knowledge-Bases
-    - Open Source/ Langchain
+    - RAG
+    - Langchain
 ---
 
 <!-- <style>

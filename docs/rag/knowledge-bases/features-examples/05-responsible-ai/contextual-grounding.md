@@ -1,8 +1,7 @@
 ---
 tags:
-    - RAG/ Knowledge-Bases
-    - Responsible-AI/ Guardrails
-    - Vector-DB/ OpenSearch
+    - RAG
+    - Responsible-AI
 ---
 
 !!! tip inline end "[Open in github](https://github.com/aws-samples/amazon-bedrock-samples/tree/main/rag/knowledge-bases/features-examples/05-responsible-ai/contextual-grounding.ipynb){:target="_blank"}"

@@ -1,8 +1,7 @@
 ---
 tags:
-    - RAG/ Metadata-Filtering
-    - RAG/ Knowledge-Bases
-    - Use cases
+    - RAG
+    - Knowledge-Bases
 ---
 
 !!! tip inline end "[Open in github](https://github.com/aws-samples/amazon-bedrock-samples/tree/main/rag/knowledge-bases/use-case-examples/metadata-filter-access-control/kb-end-to-end-acl.ipynb){:target="_blank"}"
