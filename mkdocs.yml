@@ -33,6 +33,8 @@ plugins:
         - LLM-as-Judge
         - Responsible-AI
         - Guardrails
+        - Bedrock-SDK
+        - OpenAI-Compatible
 # # extras and additional configuration
 extra:
   generator: false
