@@ -1,8 +1,8 @@
 ---
 tags:
-    - RAG/ Knowledge-Bases
-    - RAG/ Data-Ingestion
-    - Agents/ Multi-Agent-Orchestration
+    - RAG
+    - Knowledge-Bases
+    - Multi-Agent-Collaboration
 ---
 
 !!! tip inline end "[Open in github](https://github.com/aws-samples/amazon-bedrock-samples/tree/main/rag/knowledge-bases/use-case-examples/rag-using-structured-unstructured-data/2_rag_with_structured_unstructured_data.ipynb){:target="_blank"}"

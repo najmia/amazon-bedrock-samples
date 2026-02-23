@@ -1,6 +1,6 @@
 ---
 tags:
-    - API-Usage-Example
+    - Prompt-Engineering
 ---
 
 <!-- <h2> How to work with Amazon Bedrock APIs - Getting Started </h2> -->

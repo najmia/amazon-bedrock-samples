@@ -1,7 +1,7 @@
 ---
 tags:
-    - RAG/ Knowledge-Bases
-    - API-Usage-Example
+    - RAG
+    - Knowledge-Bases
 ---
 
 <!-- <h2> How to work with Amazon Bedrock Knowledge Bases</h2> -->

@@ -1,6 +1,6 @@
 ---
 tags:
-    - Agents/ Function Calling
+    - Agents
 ---
 
 <!-- <h2>How to do function calling using InvokeModel API and model-specific prompting</h2> -->

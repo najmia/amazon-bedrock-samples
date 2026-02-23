@@ -1,6 +1,7 @@
 ---
 tags:
-    - Agents/ Function Calling
+    - Agents
+    - Langchain
 ---
 <!-- <h2>How to do function calling with the Converse API</h2> -->
 

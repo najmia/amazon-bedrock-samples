@@ -1,7 +1,8 @@
 ---
 tags:
-    - Agents/ Multi-Agent-Orchestration
-    - Open Source/ LangGraph
+    - Agents
+    - Multi-Agent-Collaboration
+    - Langchain
 ---
 
 !!! tip inline end "[Open in github](https://github.com/aws-samples/amazon-bedrock-samples/blob/main/agents-and-function-calling/open-source-agents/langgraph/langgraph-multi-agent-sql-tools.ipynb){:target="_blank"}"

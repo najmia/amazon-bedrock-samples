@@ -1,6 +1,6 @@
 ---
 tags:
-    - Use cases
+    - Agents
 ---
 
 !!! tip inline end "[Open in github](https://github.com/aws-samples/amazon-bedrock-samples/tree/main/agents-and-function-calling/bedrock-agents/use-case-examples/text-2-sql-agent/create_and_invoke_sql_agent.ipynb){:target="_blank"}"

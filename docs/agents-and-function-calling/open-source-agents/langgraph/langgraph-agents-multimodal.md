@@ -1,7 +1,7 @@
 ---
 tags:
-    - Agents/ Multi-Modal
-    - Open Source/ LangGraph
+    - Agents
+    - Langchain
 ---
 <!-- 
 <h2>Find a vacation destination using multi modal Agent</h2> -->

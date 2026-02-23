@@ -1,8 +1,8 @@
 ---
 tags:
-    - Agents/ Tool Binding
-    - Open Source/ Langchain
-    - Open Source/ LlamaIndex
+    - Agents
+    - Langchain
+    - LlamaIndex
 ---
 
 <!-- <h2>How to work with tools bindings</h2> -->

@@ -1,7 +1,7 @@
 ---
 tags:
-    - Agents/ Return of Control
-    - Open Source/ Langchain
+    - Agents
+    - Langchain
 ---
 
 <!-- <h2>How to work with Return of Control (ROC)</h2> -->

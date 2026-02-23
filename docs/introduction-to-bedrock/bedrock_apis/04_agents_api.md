@@ -1,7 +1,6 @@
 ---
 tags:
-    - Agents/ Function Definition
-    - API-Usage-Example
+    - Agents
 ---
 
 <!-- <h2> How to work with Amazon Bedrock Agents</h2> -->

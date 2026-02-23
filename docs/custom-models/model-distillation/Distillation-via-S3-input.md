@@ -1,7 +1,6 @@
 ---
 tags:
-    - Customization/ Model-Distillation
-    - API-Usage-Example
+    - Fine-Tuning
 ---
 
 !!! tip inline end "[Open in github](https://github.com/aws-samples/amazon-bedrock-samples/tree/main/custom-models/model_distillation/Distillation-via-S3-input.ipynb){:target="_blank"}"

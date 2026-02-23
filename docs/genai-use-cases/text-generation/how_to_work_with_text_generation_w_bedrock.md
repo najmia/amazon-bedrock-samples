@@ -1,7 +1,6 @@
 ---
 tags:
-    - Use cases
-    - API-Usage-Example
+    - Prompt-Engineering
 ---
 <!-- <h2> Invoke Bedrock model for text generation using zero-shot prompt</h2> -->
 

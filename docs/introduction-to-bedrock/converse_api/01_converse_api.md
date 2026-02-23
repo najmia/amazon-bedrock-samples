@@ -1,6 +1,6 @@
 ---
 tags:
-    - API-Usage-Example
+    - Prompt-Engineering
 ---
 <!-- <h2> How to work with Converse API in Amazon Bedrock - Getting Started. </h2> -->
 

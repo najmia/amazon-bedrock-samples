@@ -1,8 +1,6 @@
 ---
 tags:
     - Batch-Inference
-    - Security/CloudTrail
-    - API-Usage-Example
 ---
 
 <!-- <h1>Batch Inference for CloudTrail Analyzer</h1> -->

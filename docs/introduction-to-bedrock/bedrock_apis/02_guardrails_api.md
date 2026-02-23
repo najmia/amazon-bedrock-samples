@@ -1,7 +1,6 @@
 ---
 tags:
-    - Responsible-AI/Guardrails
-    - API-Usage-Example
+    - Guardrails
 ---
 
 <!-- <h2> How to work with Amazon Bedrock Guardrails</h2> -->

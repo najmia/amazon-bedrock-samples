@@ -1,7 +1,7 @@
 ---
 tags:
-    - RAG/ Data-Ingestion
-    - RAG/ Knowledge-Bases
+    - RAG
+    - Knowledge-Bases
 ---
 
 !!! tip inline end "[Open in github](https://github.com/aws-samples/amazon-bedrock-samples/tree/main/rag/knowledge-bases/use-case-examples/rag-using-structured-unstructured-data/1_create_sql_dataset_optional.ipynb){:target="_blank"}"
