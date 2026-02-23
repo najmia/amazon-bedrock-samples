@@ -2,6 +2,7 @@
 tags:
     - Agents
     - Langchain
+    - Bedrock-SDK
 ---
 
 <!-- <h2>How to work with Return of Control (ROC)</h2> -->

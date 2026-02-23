@@ -1,6 +1,7 @@
 ---
 tags:
     - Prompt-Engineering
+    - Bedrock-SDK
 ---
 <!-- <h2> How to work with Converse API in Amazon Bedrock - Getting Started. </h2> -->
 

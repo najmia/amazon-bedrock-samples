@@ -1,6 +1,7 @@
 ---
 tags:
     - Prompt-Engineering
+    - Bedrock-SDK
 ---
 <!-- <h2> Invoke Bedrock model for Text summarization</h2> -->
 

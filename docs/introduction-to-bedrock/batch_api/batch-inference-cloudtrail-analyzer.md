@@ -1,6 +1,7 @@
 ---
 tags:
     - Batch-Inference
+    - Bedrock-SDK
 ---
 
 <!-- <h1>Batch Inference for CloudTrail Analyzer</h1> -->

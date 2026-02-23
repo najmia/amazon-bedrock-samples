@@ -1,6 +1,7 @@
 ---
 tags:
     - Agents
+    - Bedrock-SDK
 ---
 
 <!-- <h2>How to create your own Custom Agents</h2> -->

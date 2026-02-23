@@ -1,6 +1,7 @@
 ---
 tags:
     - Guardrails
+    - Bedrock-SDK
 ---
 
 <!-- <h2> How to work with Amazon Bedrock Guardrails</h2> -->

@@ -1,6 +1,7 @@
 ---
 tags:
     - Prompt-Engineering
+    - Bedrock-SDK
 ---
 <!-- <h2> Invoke Bedrock model for text translation</h2> -->
 

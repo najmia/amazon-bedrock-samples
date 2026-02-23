@@ -1,6 +1,7 @@
 ---
 tags:
     - Agents
+    - Bedrock-SDK
 ---
 
 <!-- <h2> How to work with Amazon Bedrock Agents</h2> -->

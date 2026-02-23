@@ -1,6 +1,7 @@
 ---
 tags:
     - Prompt-Engineering
+    - Bedrock-SDK
 ---
 
 <!-- <h2> How to work with Amazon Bedrock APIs - Getting Started </h2> -->

@@ -2,6 +2,7 @@
 tags:
     - RAG
     - Knowledge-Bases
+    - Bedrock-SDK
 ---
 
 <!-- <h2> How to work with Amazon Bedrock Knowledge Bases</h2> -->

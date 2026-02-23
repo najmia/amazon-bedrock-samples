@@ -1,6 +1,7 @@
 ---
 tags:
     - Agents
+    - Bedrock-SDK
 ---
 
 <!-- <h2>How to do function calling using InvokeModel API and model-specific prompting</h2> -->

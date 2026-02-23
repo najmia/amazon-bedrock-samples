@@ -2,6 +2,7 @@
 tags:
     - RAG
     - Responsible-AI
+    - Bedrock-SDK
 ---
 
 !!! tip inline end "[Open in github](https://github.com/aws-samples/amazon-bedrock-samples/tree/main/rag/knowledge-bases/features-examples/05-responsible-ai/contextual-grounding.ipynb){:target="_blank"}"

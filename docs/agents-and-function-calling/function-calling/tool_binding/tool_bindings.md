@@ -3,6 +3,7 @@ tags:
     - Agents
     - Langchain
     - LlamaIndex
+    - Bedrock-SDK
 ---
 
 <!-- <h2>How to work with tools bindings</h2> -->
