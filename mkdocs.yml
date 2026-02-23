@@ -35,6 +35,11 @@ plugins:
         - Guardrails
         - Bedrock-SDK
         - OpenAI-Compatible
+        - Speech
+        - Vision
+        - Audio
+        - Finetuning
+        - Chat
 # # extras and additional configuration
 extra:
   generator: false

@@ -2,6 +2,7 @@
 tags:
     - Agents
     - Bedrock-SDK
+    - Chat
 ---
 
 <!-- <h2>How to create your own Custom Agents</h2> -->

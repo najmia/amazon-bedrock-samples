@@ -3,6 +3,7 @@ tags:
     - Agents
     - Multi-Agent-Collaboration
     - Bedrock-SDK
+    - Chat
 ---
 
 

@@ -2,6 +2,7 @@
 tags:
     - RAG
     - Knowledge-Bases
+    - Chat
 ---
 
 !!! tip inline end "[Open in github](https://github.com/aws-samples/amazon-bedrock-samples/tree/main/rag/knowledge-bases/features-examples/03-advanced-concepts/reranking/02_kb-reranker.ipynb){:target="_blank"}"

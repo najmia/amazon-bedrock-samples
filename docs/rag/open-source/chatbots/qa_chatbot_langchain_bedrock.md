@@ -2,6 +2,7 @@
 tags:
     - RAG
     - Langchain
+    - Chat
 ---
 
 <!-- <style>

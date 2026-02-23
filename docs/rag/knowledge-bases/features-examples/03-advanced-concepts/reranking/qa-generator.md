@@ -2,6 +2,7 @@
 tags:
     - Prompt-Engineering
     - RAG
+    - Chat
 ---
 
 !!! tip inline end "[Open in github](https://github.com/aws-samples/amazon-bedrock-samples/tree/main/rag/knowledge-bases/features-examples/03-advanced-concepts/reranking/qa-generator.ipynb){:target="_blank"}"

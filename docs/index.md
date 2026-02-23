@@ -191,31 +191,6 @@ pip install boto3
                     <pre><code># Install AWS Python SDK
 pip install boto3 openai
 
-# Configure AWS credentials (choose one method)
-# Option A: AWS CLI
-aws configure
-
-# Option B: Environment variables
-export AWS_ACCESS_KEY_ID='your-access-key'
-export AWS_SECRET_ACCESS_KEY='your-secret-key'
-export AWS_DEFAULT_REGION='us-east-1'
-
-# Clone the repository and use available notebooks
-git clone https://github.com/aws-samples/amazon-bedrock-samples.git
-cd amazon-bedrock-samples</code></pre>
-                </div>
-                <div class="card">
-                    <h3>Using OpenAI-Compatible APIs (Chat Completions & Responses)</h3>
-                    <pre><code># Install required SDKs
-pip install boto3 openai
-
-# Create API key in Bedrock Console
-# Go to Amazon Bedrock Console → API keys → Generate long-term key
-
-# Set environment variables
-export OPENAI_API_KEY='your-bedrock-api-key'
-export OPENAI_BASE_URL='https://bedrock-runtime.us-east-1.amazonaws.com'
-
 # Clone the repository and use available notebooks
 git clone https://github.com/aws-samples/amazon-bedrock-samples.git
 cd amazon-bedrock-samples</code></pre>
@@ -226,9 +201,9 @@ cd amazon-bedrock-samples</code></pre>
             <h2>Features</h2>
             <div class="grid">
                 <div class="card">
-                    <h3>Agents</h3>
-                    <p>Amazon Bedrock Agents enable generative AI applications to execute multi-step tasks across company systems and data sources. This streamlines workflows, automates repetitive tasks, and increases productivity while reducing costs.</p>
-                    <a href="https://aws.amazon.com/bedrock/agents/" target="_blank">Learn More</a>
+                    <h3>Models</h3>
+                    <p>With access to hundreds of top foundation models (FMs) to power your applications and the ability to swap them in and out without rewriting code, Amazon Bedrock gives you the flexibility to build and innovate as your needs evolve.</p>
+                    <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/models.html" target="_blank">Learn More</a>
                 </div>
                 <div class="card">
                     <h3>Knowledge Bases</h3>
