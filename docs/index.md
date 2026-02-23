@@ -171,12 +171,27 @@ hide:
     <main>
         <section id="getting-started" class="features">
             <h2>Getting Started</h2>
+            <div class="card">
+                <p>In this section, we will show you how to get started with Amazon Bedrock within a few minutes. We will use the OpenAI-compatible APIs: Responses API and Chat Completions API, and the Invoke and Converse API to show you how to run an inference request.</p>
+                
+                <h3>Step 1 - AWS Account</h3>
+                <p>If you have an AWS account already, skip this step and go to step 2. If you are new to AWS, <a href="https://aws.amazon.com/free/" target="_blank">sign up for an AWS account</a> and follow instructions.</p>
+                
+                <h3>Step 2 - API Key</h3>
+                <p>Once you have an AWS account, you can create a long-term API key to authenticate your requests to Amazon Bedrock. To do that, go to the Amazon Bedrock service in AWS Console and generate a long term key. For more information, see the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/api-keys.html" target="_blank">API keys section</a> in the Build chapter.</p>
+                
+                <h3>Step 3 - Get the SDK</h3>
+                <p>To use this getting started guide, you must have Python already installed. Then install the relevant software depending on the APIs you are using.</p>
+            </div>
                 <div class="card">
                     <h3>Using Native Bedrock APIs (Invoke & Converse)</h3>
-                    <pre><code># Step 1: Install AWS Python SDK
+                    <pre><code># Install AWS Python SDK
 pip install boto3
+                    <h3>Using Open API compatible APIs (Responses & Chat Completions)</h3>
+                    <pre><code># Install AWS Python SDK
+pip install boto3 openai
 
-# Step 2: Configure AWS credentials (choose one method)
+# Configure AWS credentials (choose one method)
 # Option A: AWS CLI
 aws configure
 
@@ -185,23 +200,23 @@ export AWS_ACCESS_KEY_ID='your-access-key'
 export AWS_SECRET_ACCESS_KEY='your-secret-key'
 export AWS_DEFAULT_REGION='us-east-1'
 
-# Step 3: Clone the repository and use available notebooks
+# Clone the repository and use available notebooks
 git clone https://github.com/aws-samples/amazon-bedrock-samples.git
 cd amazon-bedrock-samples</code></pre>
                 </div>
                 <div class="card">
                     <h3>Using OpenAI-Compatible APIs (Chat Completions & Responses)</h3>
-                    <pre><code># Step 1: Install OpenAI Python SDK
-pip install openai
+                    <pre><code># Install required SDKs
+pip install boto3 openai
 
-# Step 2: Create API key in Bedrock Console
+# Create API key in Bedrock Console
 # Go to Amazon Bedrock Console → API keys → Generate long-term key
 
-# Step 3: Set environment variables
+# Set environment variables
 export OPENAI_API_KEY='your-bedrock-api-key'
 export OPENAI_BASE_URL='https://bedrock-runtime.us-east-1.amazonaws.com'
 
-# Step 4: Clone the repository and use available notebooks
+# Clone the repository and use available notebooks
 git clone https://github.com/aws-samples/amazon-bedrock-samples.git
 cd amazon-bedrock-samples</code></pre>
                 </div>
