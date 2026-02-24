@@ -163,16 +163,15 @@ hide:
     <div class="hero">
         <div class="hero-content">
             <img src="bedrock_logo.png" alt="Amazon Bedrock Logo">
-            <h1>Amazon Bedrock Recipes</h1>
+            <h1>Amazon Bedrock Cookbook</h1>
         </div>
-        <p>A collection of resources to help builders use and learn about the features of Amazon Bedrock.</p>
     </div>
 
     <main>
         <section id="getting-started" class="features">
             <h2>Getting Started</h2>
             <div class="card">
-                <p>In this section, we will show you how to get started with Amazon Bedrock within a few minutes. We will use the OpenAI-compatible APIs: Responses API and Chat Completions API, and the Invoke and Converse API to show you how to run an inference request.</p>
+                <p>In this section, we will show you how to get started with Amazon Bedrock within a few minutes. We will use the OpenAI-compatible APIs: Responses and Chat Completions API, and the Bedrock SDK APIs: Invoke and Converse API to show you how to run an inference request.</p>
                 
                 <h3>Step 1 - AWS Account</h3>
                 <p>If you have an AWS account already, skip this step and go to step 2. If you are new to AWS, <a href="https://aws.amazon.com/free/" target="_blank">sign up for an AWS account</a> and follow instructions.</p>
@@ -206,70 +205,36 @@ cd amazon-bedrock-samples</code></pre>
                     <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/models.html" target="_blank">Learn More</a>
                 </div>
                 <div class="card">
-                    <h3>Knowledge Bases</h3>
-                    <p>Amazon Bedrock Knowledge Bases provide FMs and agents with contextual information from private data sources. This enables RAG to deliver more relevant, accurate, and customized responses tailored to your company's specific needs.</p>
-                    <a href="https://aws.amazon.com/bedrock/knowledge-bases/" target="_blank">Learn More</a>
+                    <h3>Build with Amazon Bedrock</h3>
+                    <p>To start building models using Amazon Bedrock, first, start from your use-case. Then choose an API, an endpoint, and then start using the models programmatically.</p>
+                    <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/build.html" target="_blank">Learn More</a>
                 </div>
                 <div class="card">
-                    <h3>Guardrails</h3>
-                    <p>Amazon Bedrock Guardrails offer control mechanisms to ensure AI outputs align with organizational policies and ethical standards. This feature helps maintain consistency and safety in AI-generated content across various applications.</p>
-                    <a href="https://aws.amazon.com/bedrock/guardrails/" target="_blank">Learn More</a>
+                    <h3>Model Customization</h3>
+                    <p>You can customize Amazon Bedrock foundation models in order to improve their performance and create a better customer experience.</p>
+                    <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html" target="_blank">Learn More</a>
                 </div>
                 <div class="card">
-                    <h3>Model Evaluation</h3>
-                    <p>Amazon Bedrock's Model Evaluation allows users to assess and compare different models' performance. This feature helps in selecting the most suitable model for specific tasks, ensuring optimal results for your AI applications.</p>
-                    <a href="https://aws.amazon.com/blogs/aws/amazon-bedrock-model-evaluation-is-now-generally-available/" target="_blank">Learn More</a>
+                    <h3>Security, Guardrails and Observability</h3>
+                    <p>Security in Amazon Bedrock encompasses multiple layers of protection for your data, applications, and infrastructure.
+                    Amazon Bedrock Guardrails offer control mechanisms to ensure AI outputs align with organizational policies and ethical standards. Observability in Amazon Bedrock helps you track performance, manage resources, and automate deployments.
+                    </p>
+                    <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/security.html" target="_blank">Learn More</a>
                 </div>
                 <div class="card">
-                    <h3>Prompt Management</h3>
-                    <p>Amazon Bedrock Prompt Management simplifies the creation, evaluation, versioning, and sharing of prompts to help developers and prompt engineers get the best responses from foundation models (FMs) for their use cases.</p>
-                    <a href="https://aws.amazon.com/bedrock/prompt-management/" target="_blank">Learn More</a>
+                    <h3>Capacity, Limits and Cost optimization </h3>
+                    <p>Amazon Bedrock offers flexible capacity options to match your workload requirements and budget. Understanding the differences between on-demand tiers (Flex, Priority, Standard), reserved tier, batch processing, and cross-region inference helps you optimize both performance and cost.</p>
+                    <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/capacity-limits-cost-optimization.html" target="_blank">Learn More</a>
                 </div>
                 <div class="card">
-                    <h3>Prompt Flow</h3>
-                    <p>Amazon Bedrock Prompt Flows accelerates the creation, testing, and deployment of workflows through an intuitive visual builder. Prompt Flows allows you to seamlessly link foundation models (FMs), prompts, and many AWS services and tools together.</p>
-                    <a href="https://aws.amazon.com/bedrock/prompt-flows/" target="_blank">Learn More</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- <section class="features">
-            <h2>Inference Options</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>On-demand</h3>
-                    <p>On-demand Inference in Amazon Bedrock offers pay-as-you-go pricing for model usage. This flexible option allows users to access foundation models without long-term commitments, ideal for variable or unpredictable workloads.</p>
-                    <a href="./general/about-knowledge-bases.md" target="_blank">Learn More</a>
+                    <h3>Additional Capabilities</h3>
+                    <p>Additionally, Amazon Bedrock provides advanced capabilities like transforming unstructured data into meaningful insights, building knowledge bases with your data, evaluate models and knowledge bases and build end to end generative AI workflows to enhance your generative AI application.</p>
+                    <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/capacity-limits-cost-optimization.html" target="_blank">Learn More</a>
                 </div>
                 <div class="card">
-                    <h3>Cross Region Inference</h3>
-                    <p>Cross Region Inference enables the use of compute resources across different AWS Regions. This feature provides higher throughput limits and enhanced resilience, helping manage traffic bursts effectively.</p>
-                    <a href="./general/about-knowledge-bases.md" target="_blank">Learn More</a>
-                </div>
-                <div class="card">
-                    <h3>Batch Inference</h3>
-                    <p>Batch Inference allows processing of multiple prompts simultaneously, outputting responses to an S3 bucket. This mode offers a 50% lower price compared to on-demand pricing for select foundation models.</p>
-                    <a href="./general/about-knowledge-bases.md" target="_blank">Learn More</a>
-                </div>
-                <div class="card">
-                    <h3>Provisioned Throughput</h3>
-                    <p>Provisioned Throughput mode in Amazon Bedrock allows users to purchase model units for guaranteed performance. This option is ideal for large, consistent inference workloads requiring specific throughput levels.</p>
-                    <a href="./general/about-knowledge-bases.md" target="_blank">Learn More</a>
-                </div>
-            </div>
-        </section> -->
-
-        <section class="features">
-            <h2>Support for Open Source Frameworks</h2>
-            <div class="grid">
-                <div class="card">
-                    <!-- <h3>Open Source Integrations</h3> -->
-                    <ul>
-                        <li><a href="https://python.langchain.com/docs/integrations/llms/bedrock/" target="_blank">LangChain</a></li>
-                        <li><a href="https://www.langchain.com/langgraph" target="_blank">LangGraph</a></li>
-                        <li><a href="https://docs.llamaindex.ai/en/stable/examples/llm/bedrock/" target="_blank">LlamaIndex</a></li>
-                        <!-- <li><a href="https://www.crew.ai/" target="_blank">Crew.ai</a></li> -->
-                    </ul>
+                    <h3>Code Samples</h3>
+                    <p>The following section shows how to use Amazon Bedrock with an AWS softeare development toolkit (SDK).</p>
+                    <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/service_code_examples.html" target="_blank">Learn More</a>
                 </div>
             </div>
         </section>

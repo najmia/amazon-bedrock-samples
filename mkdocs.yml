@@ -108,7 +108,7 @@ markdown_extensions:
 
 # Website Page Tree
 nav:
-  - Home: 'index.md'
+  - Getting Started: 'index.md'
   # - Get Started: 'general/get-started.md'
   - Features:
     - Intro to Amazon Bedrock:
