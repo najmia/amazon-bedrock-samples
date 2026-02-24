@@ -110,14 +110,46 @@ markdown_extensions:
 nav:
   - Getting Started: 'index.md'
   # - Get Started: 'general/get-started.md'
-  - Features:
-    - Intro to Amazon Bedrock:
-      - API Usage: 
+  - Intro to Amazon Bedrock Models:
+    - Amazon Nova models:
+      - Basic API Usage: 
         - Invoke Model API Example : './introduction-to-bedrock/bedrock_apis/01_invoke_api.md'
-        - Agents API Example: './introduction-to-bedrock/bedrock_apis/04_agents_api.md'
-        - Knowledge Bases API Example: './introduction-to-bedrock/bedrock_apis/03_knowledgebases_api.md'
-        - Guardrail API Example: './introduction-to-bedrock/bedrock_apis/02_guardrails_api.md'
-        - Converse API Example: './introduction-to-bedrock/converse_api/01_converse_api.md'
+        - Converse API Example : './introduction-to-bedrock/converse_api/01_converse_api.md'
+      - Multimodal:
+        - Nova Lite Multimodal Example: './multi-modal/Nova/Nova-Lite-Multimodal-Example.md'
+        - Multimodal Knowledge Bases: './rag/knowledge-bases/features-examples/06-multi-modal-rag/nova-mme-multimodal-rag/multimodal-knowledge-bases.md'
+      - Prompt Caching:
+        - Prompt Caching with Nova Models: './introduction-to-bedrock/prompt-caching/prompt_caching_with_nova_models.md'
+      - On-Demand Inference:
+        - Setup Nova Micro: './custom-models/on_demand_inference/01_setup_nova_micro.md'
+        - Fine-tune with On-Demand Inference: './custom-models/on_demand_inference/02_fine-tune_nova_micro_with_on_demand_inference.md'
+      - Model Customization:
+        - Nova Canvas (Image Generation):
+          - Canvas Fine-tuning Job: './custom-models/bedrock-fine-tuning/nova/canvas/1-CanvasFT-customization-job.md'
+          - Canvas Provisioned Throughput: './custom-models/bedrock-fine-tuning/nova/canvas/2-Canvas-provisioned-throughput-inference.md'
+        - Reinforcement Fine-tuning:
+          - Nova FinQA RFT: './custom-models/bedrock-reinforcement-fine-tuning/nova/nova_finqa_rft.md'
+          - Nova GSM8K RFT: './custom-models/bedrock-reinforcement-fine-tuning/nova/nova_gsm8k_rft.md'
+      - Tool Calling Fine-tuning:
+        - Tool Calling Basics: './custom-models/bedrock-fine-tuning/nova/understanding/01_toolcall_nova_bedrock_invokeAPI_and_converseAPI.md'
+        - Prepare Dataset: './custom-models/bedrock-fine-tuning/nova/understanding/02_prepare_toolcall_dataset_for_bedrock_nova_ft.md'
+        - Full Fine-tuning: './custom-models/bedrock-fine-tuning/nova/understanding/03_toolcall_fullfinetune_nova_bedrock.md'
+        - Test Fine-tuned Model: './custom-models/bedrock-fine-tuning/nova/understanding/04_toolcall_test_inference_finetuned_nova_bedrock.md'
+    - Amazon Titan models:
+      - Text Generation:
+        - Text Summarization: './genai-use-cases/text-generation/how_to_work_with_text-summarization-titan+claude.md'
+      - Embeddings:
+        - Titan Text Embeddings V2: './multi-modal/Titan/embeddings/v2/Titan-V2-Embeddings.md'
+        - Multimodal RAG with Titan Embeddings: './multi-modal/Titan/titan-multimodal-embeddings/rag/multimodal_rag.md'
+      - Image Generation:
+        - Instant Customization: './multi-modal/Titan-Image-Generator/Instant-Customization/Introduction-to-Instant-Customization.md'
+        - Background Removal: './multi-modal/Titan-Image-Generator/Background-Removal/Introduction-to-Background-Removal.md'
+        - Image Conditioning: './multi-modal/Titan-Image-Generator/Image-Conditioning/Introduction-to-Image-Conditioning.md'
+        - Color Conditioning: './multi-modal/Titan-Image-Generator/Color-Conditioning/Introduction-to-Color-Conditioning.md'
+      - Model Customization:
+        - Titan Image Generator Fine-tuning:
+          - Fine-tuning Job: './custom-models/bedrock-fine-tuning/amazon-titan-image-generator/1-TIGFT-customization-job.md'
+          - Provisioned Throughput Inference: './custom-models/bedrock-fine-tuning/amazon-titan-image-generator/2-TIGFT-provisioned-throughput-inference.md'
     - Agents:
       - Amazon Bedrock Agents:
         - How to create an Agent: './agents-and-function-calling/introduction-to-agents/how_to_create_custom_agents.md'
